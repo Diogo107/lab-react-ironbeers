@@ -40,7 +40,7 @@ const random = id =>
 const create = data =>
   new Promise((resolve, reject) => {
     instance
-      .post(`/beers/new`)
+      .post(`/beers/new`, data)
       .then(result => {
         console.log(result);
         const beers = result.data;
