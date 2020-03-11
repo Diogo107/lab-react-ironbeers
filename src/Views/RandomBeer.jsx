@@ -13,19 +13,15 @@ export default class SingleBeer extends Component {
     this.fetchData();
   }
 
-  fetchData() {
+  async fetchData() {
     const id = this.props.match.params._id;
     console.log('im here', id);
-    random(id)
-      .then(beer => {
-        console.log('im here............', beer);
-        this.setState({
-          beer
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    const someOne = await random(id);
+    const beer = someOne;
+    console.log('im here............', beer);
+    this.setState({
+      beer
+    });
   }
 
   render() {

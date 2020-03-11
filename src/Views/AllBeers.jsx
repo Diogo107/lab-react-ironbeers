@@ -14,18 +14,13 @@ export default class AllBeers extends Component {
     this.fetchData();
   }
 
-  fetchData() {
+  async fetchData() {
     console.log('im here');
-    list()
-      .then(beers => {
-        console.log('im here............', beers);
-        this.setState({
-          beers
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    const beers = await list();
+    console.log('im here............', beers);
+    this.setState({
+      beers
+    });
   }
 
   render() {
